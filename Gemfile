@@ -80,3 +80,5 @@ gem "carrierwave", "~> 2.2"
 gem "grape", "~> 1.7"
 
 gem "hashie", "~> 5.0"
+
+gem "grape-entity", "~> 1.0"
