@@ -1,0 +1,2 @@
+class ImageProduct < ApplicationRecord
+end
