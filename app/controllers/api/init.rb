@@ -5,7 +5,7 @@ class Api::Init < Grape::API
   formatter :json, SuccessFormatter
 
   include Grape::Extensions::Hashie::Mash::ParamBuilder
-  include ExceptionHandler
+  # include ExceptionHandler
 
   mount Api::V0::Routes
 end
