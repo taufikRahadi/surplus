@@ -86,5 +86,22 @@ class Api::V0::Product::Product < Grape::API
         present :product, product
       end
     end
+
+    desc 'delete product'
+    params do
+      requires :id, type: Integer
+    end
+    delete '/:id' do
+      product = Product.find_by id: params.id
+      error!('Product not found', env['api.response.code']) unless product.present?
+
+      ActiveRecord::Base.transaction do
+        product.category_products.delete_all
+        product.image_products.delete_all
+        product.delete
+
+        present :status, true
+      end
+    end
   end
 end
